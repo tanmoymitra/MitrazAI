@@ -315,3 +315,122 @@ document.addEventListener('DOMContentLoaded', () => {
     document.head.appendChild(style);
 
 });
+
+// Link data for personas
+const personaData = {
+    saas: {
+        headline: "Automate Your SaaS Operations <span class='gradient-text'>Without Hiring More People</span>",
+        subhead: "Replace manual workflows across sales, support, onboarding, and ops with AI-powered automation built for fast-scaling SaaS teams.",
+        ctaPrimary: "Get My SaaS Automation Roadmap",
+        ctaSecondary: "See How It Works",
+        problemHeadline: "Stop Losing <span class='highlight'>Time & Revenue</span>",
+        problemSubhead: "Manual processes are the bottleneck to your growth.",
+        problems: [
+            { icon: "📉", title: "Churn Risk", text: "Slow onboarding and support response times lead to dissatisfied customers." },
+            { icon: "🔥", title: "Dev Distraction", text: "Your engineers are stuck building internal tools instead of product features." },
+            { icon: "💰", title: "OpEx Bloat", text: "Hiring more operational staff kills your margins as you scale." }
+        ],
+        conversionHeadline: "See What You Can Automate in 30 Minutes",
+        conversionSubhead: "Get a free SaaS workflow audit and a custom AI automation plan.",
+        conversionCta: "Book My Free SaaS Automation Audit"
+    },
+    agency: {
+        headline: "Deliver More Client Results — <span class='gradient-text'>Without Burning Out Your Team</span>",
+        subhead: "Automate fulfillment, reporting, and client operations using AI + no-code workflows. Scale your agency, not your headcount.",
+        ctaPrimary: "Automate My Agency Workflows",
+        ctaSecondary: "View Agency Solutions",
+        problemHeadline: "Is Your Agency <span class='highlight'>Stuck in Delivery Hell?</span>",
+        problemSubhead: "You shouldn't be spending all day copy-pasting report data.",
+        problems: [
+            { icon: "😫", title: "Team Burnout", text: "Account managers are overwhelmed with manual reporting and updates." },
+            { icon: "📉", title: "Profit Leaks", text: "Scope creep and manual tasks eat away at your retainer margins." },
+            { icon: "🐢", title: "Slow Turnaround", text: "Client deliverables perform slower because of manual bottlenecks." }
+        ],
+        conversionHeadline: "Scale Your Agency With AI",
+        conversionSubhead: "Get a free audit of your agency workflows and find hidden profit margins.",
+        conversionCta: "Book My Free Agency Automation Call"
+    },
+    sme: {
+        headline: "Stop Wasting Time on Repetitive Work — <span class='gradient-text'>Let AI Handle It</span>",
+        subhead: "Automate sales, support, invoicing, and daily operations so you can focus on growth. No technical skills required.",
+        ctaPrimary: "Get My Automation Plan",
+        ctaSecondary: "Explore Solutions",
+        problemHeadline: "Are You Trapped in <span class='highlight'>Admin Work?</span>",
+        problemSubhead: "You started a business to grow, not to manage spreadsheets.",
+        problems: [
+            { icon: "⏳", title: "Lost Hours", text: "Spending 10+ hours a week on data entry and emails." },
+            { icon: "💸", title: "Missed Leads", text: "Potential customers slip through the cracks because you're too busy." },
+            { icon: "🤯", title: "Overwhelm", text: "Trying to wear every hat and feeling constantly behind." }
+        ],
+        conversionHeadline: "Reclaim 20+ Hours a Week",
+        conversionSubhead: "See exactly which tasks you can offload to AI today.",
+        conversionCta: "Book My Free Automation Call"
+    }
+};
+
+document.addEventListener('DOMContentLoaded', () => {
+    const toggles = document.querySelectorAll('.toggle-btn');
+
+    // Elements to update
+    const heroHeadline = document.getElementById('hero-headline');
+    const heroSubhead = document.getElementById('hero-subhead');
+    const heroCtaPrimary = document.getElementById('hero-cta-primary');
+    const heroCtaSecondary = document.getElementById('hero-cta-secondary');
+
+    const problemHeadline = document.getElementById('problem-headline');
+    const problemSubhead = document.getElementById('problem-subhead');
+    const problemGrid = document.getElementById('problem-grid');
+
+    const conversionHeadline = document.getElementById('conversion-headline');
+    const conversionSubhead = document.getElementById('conversion-subhead');
+    const conversionCta = document.getElementById('conversion-main-cta');
+
+    // Function to render problems
+    function renderProblems(problems) {
+        if (!problemGrid) return;
+        problemGrid.innerHTML = problems.map(p => `
+            <div class="feature-card fade-in">
+                <div class="icon-box">${p.icon}</div>
+                <h3>${p.title}</h3>
+                <p>${p.text}</p>
+            </div>
+        `).join('');
+    }
+
+    // Switch Content
+    function switchPersona(personaKey) {
+        const data = personaData[personaKey];
+        if (!data) return;
+
+        // Update Text
+        if (heroHeadline) heroHeadline.innerHTML = data.headline;
+        if (heroSubhead) heroSubhead.textContent = data.subhead;
+        if (heroCtaPrimary) heroCtaPrimary.textContent = data.ctaPrimary;
+        if (heroCtaSecondary) heroCtaSecondary.textContent = data.ctaSecondary;
+
+        if (problemHeadline) problemHeadline.innerHTML = data.problemHeadline;
+        if (problemSubhead) problemSubhead.textContent = data.problemSubhead;
+
+        renderProblems(data.problems);
+
+        if (conversionHeadline) conversionHeadline.textContent = data.conversionHeadline;
+        if (conversionSubhead) conversionSubhead.textContent = data.conversionSubhead;
+        if (conversionCta) conversionCta.textContent = data.conversionCta;
+
+        // Update Toggle State
+        toggles.forEach(btn => {
+            if (btn.dataset.persona === personaKey) {
+                btn.classList.add('active');
+            } else {
+                btn.classList.remove('active');
+            }
+        });
+    }
+
+    toggles.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const persona = btn.dataset.persona;
+            switchPersona(persona);
+        });
+    });
+});

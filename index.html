@@ -103,72 +103,55 @@
     <main>
         <section class="hero">
             <div class="container hero-content">
-                <div class="hero-text">
 
-                    <h1>Turn Repetitive Tasks Into <span class="gradient-text">Automated Profit</span>.</h1>
-                    <p>We help businesses save time, reduce costs, and scale faster by building smart AI automations
-                        powered
-                        by OpenAI, Make, and n8n.</p>
-                    <div class="hero-btns">
-                        <a href="#contact" class="btn btn-primary">Start My Automation</a>
-                        <a href="#services" class="btn btn-secondary">Explore Solutions</a>
+                <!-- Persona Toggle -->
+                <div class="persona-toggle-container">
+                    <div class="persona-toggle">
+                        <button class="toggle-btn active" data-persona="saas">SaaS Founders</button>
+                        <button class="toggle-btn" data-persona="agency">Agencies</button>
+                        <button class="toggle-btn" data-persona="sme">SMEs</button>
                     </div>
                 </div>
-                <div class="hero-visual">
-                    <!-- AI Automation Network Animation -->
-                    <div class="ai-network-anim">
-                        <!-- Lines & Packets -->
-                        <div class="network-line l-1">
-                            <div class="data-packet p-1"></div>
-                        </div>
-                        <div class="network-line l-2">
-                            <div class="data-packet p-2"></div>
-                        </div>
-                        <div class="network-line l-3">
-                            <div class="data-packet p-3"></div>
-                        </div>
 
-                        <!-- Nodes -->
-                        <div class="network-node center-node">
-                            <span class="node-icon">🧠</span>
-                            <div class="node-pulse"></div>
-                        </div>
-                        <div class="network-node satellite node-chat">
-                            <span class="node-icon">💬</span>
-                        </div>
-                        <div class="network-node satellite node-db">
-                            <span class="node-icon">🗄️</span>
-                        </div>
-                        <div class="network-node satellite node-cloud">
-                            <span class="node-icon">☁️</span>
-                        </div>
+                <div class="hero-text">
+                    <div class="badge">AI Automation Partner</div>
+                    <h1 id="hero-headline">Automate Your SaaS Operations <span class="gradient-text">Without Hiring More
+                            People</span></h1>
+                    <p id="hero-subhead">Replace manual workflows across sales, support, onboarding, and ops with
+                        AI-powered automation built for fast-scaling SaaS teams.</p>
+                    <div class="hero-btns">
+                        <a href="#contact" id="hero-cta-primary" class="btn btn-primary">Get My SaaS Automation
+                            Roadmap</a>
+                        <a href="#services" id="hero-cta-secondary" class="btn btn-secondary">See How It Works</a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Agitation Section -->
-        <section class="agitation section-padding">
+        <!-- Problem / Impact Section -->
+        <section id="problem" class="section-padding bg-darker">
             <div class="container">
                 <div class="section-header centered">
-                    <h2>Is Manual Work Slowing You Down?</h2>
-                    <p>If you’re spending hours on these tasks, you are losing money.</p>
+                    <h2 id="problem-headline">Stop Losing <span class="highlight">Time & Revenue</span></h2>
+                    <p id="problem-subhead">Manual processes are the bottleneck to your growth.</p>
                 </div>
-                <div class="grid-3">
-                    <div class="card warning-card">
-                        <div class="icon">📉</div>
-                        <h3>Manual Lead Follow-ups</h3>
-                        <p>Losing leads because you can't reply instantly 24/7?</p>
+                <div class="grid-3" id="problem-grid">
+                    <!-- Dynamic Content will be injected here by JS -->
+                    <!-- Default SaaS Content -->
+                    <div class="feature-card">
+                        <div class="icon-box">📉</div>
+                        <h3>Churn Risk</h3>
+                        <p>Slow onboarding and support response times lead to dissatisfied customers.</p>
                     </div>
-                    <div class="card warning-card">
-                        <div class="icon">⏳</div>
-                        <h3>Data Entry Drudgery</h3>
-                        <p>Copy-pasting data between emails, spreadsheets, and CRMs?</p>
+                    <div class="feature-card">
+                        <div class="icon-box">🔥</div>
+                        <h3>Dev Distraction</h3>
+                        <p>Your engineers are stuck building internal tools instead of product features.</p>
                     </div>
-                    <div class="card warning-card">
-                        <div class="icon">🤯</div>
-                        <h3>Content Overload</h3>
-                        <p>Struggling to keep up with social media and blog posts?</p>
+                    <div class="feature-card">
+                        <div class="icon-box">💰</div>
+                        <h3>OpEx Bloat</h3>
+                        <p>Hiring more operational staff kills your margins as you scale.</p>
                     </div>
                 </div>
             </div>
@@ -385,6 +368,20 @@
 
         <!-- CTA / Contact -->
 
+        <!-- Primary Conversion Section -->
+        <section id="conversion" class="section-padding cta-section">
+            <div class="container centered">
+                <div class="cta-content">
+                    <h2 id="conversion-headline">See What You Can Automate in 30 Minutes</h2>
+                    <p id="conversion-subhead">Get a free workflow audit and a custom AI automation plan — no sales
+                        pressure.</p>
+                    <br>
+                    <a href="#contact" id="conversion-main-cta" class="btn btn-primary pulse-btn">Book My Free SaaS
+                        Automation Audit</a>
+                    <p class="micro-copy"><small>No commitment. Actionable insights only.</small></p>
+                </div>
+            </div>
+        </section>
 
         </section>
     </main>
