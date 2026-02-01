@@ -250,7 +250,7 @@ document.addEventListener('DOMContentLoaded', () => {
         data.source = 'Strategy Call Modal';
 
         // Webhook URL
-        const webhookUrl = 'https://automation.mitrazinfotech.tech/webhook-test/91bc5488-1af4-4d3f-9083-20ba85e3332d';
+        const webhookUrl = 'https://automation.mitrazinfotech.tech/webhook/91bc5488-1af4-4d3f-9083-20ba85e3332d';
 
         fetch(webhookUrl, {
             method: 'POST',
