@@ -254,6 +254,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         fetch(webhookUrl, {
             method: 'POST',
+            mode: 'cors', // Explicitly enable CORS
             headers: {
                 'Content-Type': 'application/json'
             },
@@ -267,12 +268,14 @@ document.addEventListener('DOMContentLoaded', () => {
                     currentStep = 0;
                     showStep(0);
                 } else {
-                    alert('Server Error: ' + response.status + '. Please try again.');
+                    response.text().then(text => {
+                        alert(`Server Error (${response.status}): ${text || 'Please try again.'}`);
+                    });
                 }
             })
             .catch(error => {
-                console.error('Error:', error);
-                alert('Connection Error. Please try again.');
+                console.error('Fetch Error:', error);
+                alert(`Connection Error: ${error.message}. Please check your internet or try again.`);
             })
             .finally(() => {
                 submitBtn.innerText = originalBtnText;
